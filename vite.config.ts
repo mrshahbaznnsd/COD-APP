@@ -7,4 +7,9 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      external: ['react-router-dom'], // Add this if you want to externalize react-router-dom
+    },
+  },
 });
