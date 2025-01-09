@@ -1,0 +1,32 @@
+{% if product.available %}
+  <button
+    type="button"
+    class="cod-button w-full bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+    data-product-id="{{ product.id }}"
+    data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+  >
+    Buy Now with COD
+  </button>
+
+  <div id="cod-modal-container"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const codButtons = document.querySelectorAll('.cod-button');
+      
+      codButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const productId = this.getAttribute('data-product-id');
+          const variantId = this.getAttribute('data-variant-id');
+          
+          // Show COD form modal
+          window.Shopify.postMessage({
+            type: 'showCODForm',
+            productId,
+            variantId
+          });
+        });
+      });
+    });
+  </script>
+{% endif %}
