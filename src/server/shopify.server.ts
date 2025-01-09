@@ -6,7 +6,7 @@ const shopify = shopifyApi({
   apiKey: '765137b68ca7f605992d521c39116e5a',
   apiSecretKey: '9cd7790357cd6e033168b3bf292645d7',
   scopes: ['write_orders', 'write_products', 'read_products'],
-  hostName: 'https://codnns.netlify.app',
+  hostName: 'codnns.netlify.app',
   apiVersion: '2024-01',
   isEmbeddedApp: true,
   restResources,
